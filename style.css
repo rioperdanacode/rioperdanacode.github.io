@@ -749,6 +749,9 @@ section .box .circle h2 {
          var(--button-active) 31px
       );
 }
+
+
+
 @keyframes animate {
    0% {
       transform: translateY(0);
@@ -1050,4 +1053,29 @@ section .box .circle h2 {
 
 .card-8 p {
    font-family: "Satisfy", cursive;
+}
+
+.card-8 .ssatu, 
+.card-8 .ddua, 
+.card-8 .tiga, 
+.card-8 .empat,
+.card-8 .lima {
+   font-family: cursive;
+   line-height: 39px;
+   font-size: 1rem;
+   animation: animation-appear 3s forwards;
+}
+
+
+.rose {
+   width: 150px;
+   height: auto;
+   animation: animation-appear 4s forwards;
+   margin-top: 1rem;
+}
+
+.kartu-1 {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 }

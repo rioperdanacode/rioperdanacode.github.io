@@ -11,6 +11,11 @@ const buttoncard5 = document.querySelectorAll(".buttoncard5");
 const yahh = document.querySelector(".yahh");
 const card6 = document.querySelector(".card-6");
 
+const backsound = new Audio();
+backsound.loop = true;
+backsound.src = "Assets/musik/romantis.mp3";
+backsound.volume = 0.3;
+
 function bubbles() {
    var countt = 200;
    var section = document.querySelector(".main");
@@ -71,6 +76,7 @@ const button1card0 = document.getElementsByClassName("button1-card0")[0];
 const card0 = document.querySelector(".card-0");
 button1card0.addEventListener("click", () => {
    voiceButton.play();
+
    card0.classList.add("hilang");
    card1.classList.remove("hilang");
    vic = "voice2.mp3";
@@ -78,6 +84,7 @@ button1card0.addEventListener("click", () => {
    setTimeout(() => {
       voice.play();
       progressBar.classList.remove("hilang");
+      backsound.play();
    }, 1200);
 });
 //=========================CARD-1==================
@@ -97,7 +104,7 @@ function winEvent() {
                bc[0].classList.remove("hilang");
                bc[1].classList.remove("hilang");
             }, 800);
-         }, 2000);
+         }, 1000);
       }, 1200);
    }
 }
@@ -143,23 +150,27 @@ const XA = document.getElementById("XA");
 const xx = document.getElementsByClassName("xx")[0].innerHTML;
 const a = document.querySelector(".a");
 const card5 = document.querySelector(".card-5");
+const uuk = document.querySelector(".uuk");
 
 const musik = new Audio();
 musik.src = "Assets/musik/lagu.mp3";
 musik.loop = false;
 
-wh.addEventListener("keydown", function (e) {
+function kTombol() {
+   uuk.classList.remove("hilang");
+}
+
+uuk.addEventListener("click", () => {
    if (wh.value != "") {
-      if (e.key === "Enter") {
-         bungkus.classList.remove("hilang");
-         const hasil = xx.replace(/\ang/, wh.value.toString());
-         XA.innerHTML = hasil;
-         setTimeout(() => {
-            voice.src = "Assets/musik/voice4.mp3";
-            voice.play();
-         }, 2000);
-         setTimeout(cd4, 8000);
-      }
+      uuk.classList.add("hilang");
+      bungkus.classList.remove("hilang");
+      const hasil = xx.replace(/\ang/, wh.value.toString());
+      XA.innerHTML = hasil;
+      setTimeout(() => {
+         voice.src = "Assets/musik/voice4.mp3";
+         voice.play();
+      }, 2000);
+      setTimeout(cd4, 8000);
    }
 });
 
@@ -180,10 +191,12 @@ const plays = function (play, stop) {
          musik.play();
          play.classList.toggle("hilang");
          stop.classList.toggle("hilang");
+         backsound.pause();
       } else {
          musik.pause();
          play.classList.toggle("hilang");
          stop.classList.toggle("hilang");
+         backsound.play();
       }
    }, 500);
 };
@@ -369,7 +382,7 @@ button2.forEach((e) => {
 
 // =======================CARD-7=====================================
 
-const bb = document.querySelectorAll(".z");
+const bb = document.querySelectorAll(".dd");
 const birthday = document.querySelector(".card-8");
 const jarjit = document.querySelector(".jarjit");
 const tsas = document.querySelector(".tas");
@@ -384,6 +397,7 @@ bb.forEach((e) => {
          birthday.classList.remove("hilang");
          jarjit.classList.remove("hilang");
          setTimeout(() => {
+            backsound.pause();
             satu.classList.remove("hilang");
             voice.src = "Assets/musik/jarjit.mp3";
             voice.play();
@@ -393,6 +407,31 @@ bb.forEach((e) => {
             tsas.classList.remove("hilang");
             voice.src = "Assets/musik/jamrut.mp3";
             voice.play();
+
+            setTimeout(xxx, 3000);
+
+            function xxx() {
+               tsas.classList.add("hilang");
+               document.querySelector(".ssatu").classList.remove("hilang");
+               var hitungg = 13;
+               var tt = setInterval(() => {
+                  hitungg--;
+                  if (hitungg == 9) {
+                     document.querySelector(".ddua").classList.remove("hilang");
+                  } else if (hitungg == 13) {
+                  } else if (hitungg == 6) {
+                     document.querySelector(".tiga").classList.remove("hilang");
+                  } else if (hitungg == 3) {
+                     document
+                        .querySelector(".empat")
+                        .classList.remove("hilang");
+                  } else if (hitungg == 0) {
+                     document.querySelector(".lima").classList.remove("hilang");
+                     document.querySelector(".rose").classList.remove("hilang");
+                     clearInterval(tt);
+                  }
+               }, 1200);
+            }
          }, 3000);
       }
    });
